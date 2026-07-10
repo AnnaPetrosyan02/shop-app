@@ -1,7 +1,6 @@
-import Sidebar from './Sidebar'
-import Products from './Products'
-import Subscribe from './Subscribe'
-import './Showcase.css'
+import Sidebar from '../Sidebar/Sidebar'
+import Products from '../Products/Products'
+import Subscribe from '../Subscribe/Subscribe'
 
 export default function Showcase () {
   return (

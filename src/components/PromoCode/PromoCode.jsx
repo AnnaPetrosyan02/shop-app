@@ -1,4 +1,4 @@
-import './PromoCode.css'
+import { buttonArrow,  } from '../../assets/icons';
 
 export default function PromoCode() {
   return (
@@ -12,7 +12,7 @@ export default function PromoCode() {
                 <input type="text" name="promo-code" className="input" placeholder="Enter promo code"/>
                 <div className="button-wrapper">
                     <button className="button">
-                        <img src="./icons/button-arrow.svg" alt="Arrow icon"/>
+                        <img src={buttonArrow} alt="Arrow icon"/>
                     </button>
                     <div className="vertical-line"></div>
                 </div>

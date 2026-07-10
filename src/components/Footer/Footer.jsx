@@ -1,23 +1,22 @@
-
-import './Footer.css'
-import './Container.css'
+import { logo, send, visa, mastercard, paypal, payoneer } from '../../assets/icons';
+import { designLeft, designRight, } from '../../assets/images';
 
 export default function Footer() {
   return (
     <footer className='footer'>
         <div className="designs">
             <div className="design left">
-                <img src="./icons/design-left.svg" alt="design"/>
+                <img src={designLeft} alt="design"/>
             </div>
             <div className="design right">
-                <img src="./icons/design-right.svg" alt="design"/>
+                <img src={designRight} alt="design"/>
             </div>
         </div>
         <div className="container">
             <div className="footer-info">
                 <div className="column column-1">
                     <div className="logo">
-                        <img src="./icons/logo.svg" alt="logo"/>
+                        <img src={logo} alt="logo" />
                     </div>
                     <div className="about-brand">
                         Cillum eu id enim aliquip aute ullamco anim. Culpa deserunt nostrud excepteur voluptate.
@@ -78,7 +77,7 @@ export default function Footer() {
                         <form action="">
                         <label>
                             <input type="email" placeholder="Enter your email" className="input"/>
-                            <img src="./icons/send.svg" alt="send" className="send-icon"/>
+                            <img src={send} alt="send" className="send-icon"/>
                         </label>
                         </form>
                     </div>
@@ -92,16 +91,16 @@ export default function Footer() {
                     <div>Payment methods:</div>
                     <div className="payment-methods">
                         <div className="payment-method">
-                        <img src="./icons/visa.svg" alt="visa"/>
+                        <img src={visa} alt="visa"/>
                         </div>
                         <div className="payment-method">
-                        <img src="./icons/mastercard.svg" alt="mastercard"/>
+                        <img src={mastercard} alt="mastercard"/>
                         </div>
                         <div className="payment-method">
-                        <img src="./icons/paypal.svg" alt="paypal"/>
+                        <img src={paypal} alt="paypal"/>
                         </div>
                         <div className="payment-method">
-                        <img src="./icons/payoneer.svg" alt="payoneer"/>
+                        <img src={payoneer} alt="payoneer"/>
                         </div>
                     </div>
                 </div>

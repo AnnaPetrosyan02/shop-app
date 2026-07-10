@@ -1,5 +1,5 @@
-import './Header.css'
-import { useApp } from './context/AppContext'
+import { useApp } from '../../context/AppContext'
+import { logo, arrow, arrowPink, search, profile, favoritesIcon, cart} from '../../assets/icons';
 
 export default function Header({ onCartClick, onShopClick}) {
   const { favorites, getCartCount } = useApp()
@@ -22,7 +22,7 @@ export default function Header({ onCartClick, onShopClick}) {
             </nav>
           </div>
           <div className="logo" onClick={onShopClick} style={{cursor: 'pointer'}}>
-            <img src="./icons/logo.svg" alt="logo"/>
+            <img src={logo} alt="logo"/>
           </div>
         </div>
         <div className="menu">
@@ -31,13 +31,13 @@ export default function Header({ onCartClick, onShopClick}) {
           </div>
           <div className="menu-item">
             <span>Pages</span>
-            <img src="./icons/arrow.svg" alt="" className="arrow-default"/>
-            <img src="./icons/arrow-pink.svg" alt="" className="arrow-hover"/>
+            <img src={arrow} alt="" className="arrow-default"/>
+            <img src={arrowPink} alt="" className="arrow-hover"/>
           </div>
           <div className="menu-item" onClick={onShopClick} style={{cursor: 'pointer'}}>
             <span>Shop</span>
-            <img src="./icons/arrow.svg" alt="" className="arrow-default"/>
-            <img src="./icons/arrow-pink.svg" alt="" className="arrow-hover"/>
+            <img src={arrow} alt="" className="arrow-default"/>
+            <img src={arrowPink} alt="" className="arrow-hover"/>
           </div>
           <div className="menu-item">
             <span>Blog</span>
@@ -49,17 +49,17 @@ export default function Header({ onCartClick, onShopClick}) {
       </div>
       <div className="right-side">
         <div className="header-icon">
-          <img src="./icons/search.svg" alt="search"/>
+          <img src={search} alt="search"/>
         </div>
         <div className="header-icon">
-          <img src="./icons/profile.svg" alt="profile"/>
+          <img src={profile} alt="profile"/>
         </div>
         <div className="header-icon">
-          <img src="./icons/favorites.svg" alt="favorites"/>
+          <img src={favoritesIcon} alt="favorites"/>
           <div className="counter">{favorites.length}</div>
         </div>
         <div className="header-icon" onClick={onCartClick}>
-          <img src="./icons/cart.svg" alt="cart"/>
+          <img src={cart} alt="cart"/>
           <div className="counter js-basket-counter">{getCartCount()}</div>
         </div>
       </div>

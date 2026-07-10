@@ -23,6 +23,7 @@
 .header-presentation .design {
   position: absolute;
   margin-left: 60px;
+  z-index: 0;
 }
 
 .header-presentation .header-content .header-title {

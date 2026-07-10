@@ -1,4 +1,4 @@
-import './Subscribe.css'
+import { designCenter } from '../../assets/images';
 
 export default function Subscribe() {
   return (
@@ -6,7 +6,7 @@ export default function Subscribe() {
         <div className="container">
             <div className="subscribe-content">
                 <div className="design">
-                    <img src="./icons/design-center.svg" alt="design"/>
+                    <img src={designCenter} alt="design"/>
                 </div>
                 <div className="subscribe-title">Newsletter</div>
                 <div className="subscribe-text">Be the first to hear about deals, offers and upcoming collections.</div>

@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useDebounce } from '../useDebounce';
+import { LS_keys } from '../constants';
 
 const AppContext = createContext();
 
@@ -21,19 +22,19 @@ export function AppProvider({ children }) {
   });
 
   useEffect(() => {
-    const savedFavorites = localStorage.getItem('favorites');
-    const savedCart = localStorage.getItem('cart');
+    const savedFavorites = localStorage.getItem(LS_keys.FAVORITES);
+    const savedCart = localStorage.getItem(LS_keys.CART);
     
     if (savedFavorites) setFavorites(JSON.parse(savedFavorites));
     if (savedCart) setCart(JSON.parse(savedCart));
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    localStorage.setItem(LS_keys.FAVORITES, JSON.stringify(favorites));
   }, [favorites]);
 
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem(LS_keys.CART, JSON.stringify(cart));
   }, [cart]);
 
   const toggleFavorite = (productId) => {

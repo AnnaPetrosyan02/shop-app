@@ -1,11 +1,10 @@
-
-import './ContentBlock.css'
+import { designTop } from '../../assets/images';
 
 export default function ContentBlock({currentPage, onPageClick}) {
   return (
     <div className="header-presentation">
       <div className="design">
-        <img src="./icons/design-top.svg" alt="design"/>
+        <img src={designTop} alt="design"/>
       </div>
       <div className="header-content">
         <div className="content-text">

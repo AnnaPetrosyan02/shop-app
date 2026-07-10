@@ -1,7 +1,5 @@
-import Order from './Order'
-import PromoCode from './PromoCode'
-import './Cart.css'
-import './Container.css'
+import Order from './components/Order/Order'
+import PromoCode from './components/PromoCode/PromoCode'
 
 export default function Cart() {
   return (

@@ -1,5 +1,4 @@
-import './Order.css'
-import { useApp } from './context/AppContext'
+import { useApp } from '../../context/AppContext'
 
 export default function Order() {
   const { cart, updateCartQuantity, removeFromCart, getCartTotal } = useApp()

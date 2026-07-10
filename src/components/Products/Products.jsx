@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import './Products.css'
-import ProductsData from './ProductsData.json'
-import { useApp } from './context/AppContext'
+import ProductsData from '../../ProductsData.json'
+import { useApp } from '../../context/AppContext'
+import { favoritesIcon, favoritesFilled, rightPaginArrow, leftPaginArrow } from '../../assets/icons';
+
 
 export default function Products() {
   const [products, setProducts] = useState([])
@@ -64,7 +65,7 @@ export default function Products() {
                       style={{ cursor: 'pointer' }}
                     >
                       <img
-                        src={isFavorite(product.id) ? "./icons/favorites-filled.svg" : "./icons/favorites.svg"}
+                        src={isFavorite(product.id) ? favoritesFilled : favoritesIcon }
                         alt="heart"
                       />
                     </div>
@@ -104,7 +105,7 @@ export default function Products() {
 
         <div className="pagination">
           <div className="button left">
-            <img src="./icons/left-pagin-arrow.svg" alt="arrow-left"/>
+            <img src={ leftPaginArrow } alt="arrow-left"/>
           </div>
           <div className="pages">
             <div className="page active">1</div>
@@ -112,7 +113,7 @@ export default function Products() {
             <div className="page">3</div>
           </div>
           <div className="button right">
-            <img src="./icons/right-pagin-arrow.svg" alt="arrow-right"/>
+            <img src={ rightPaginArrow } alt="arrow-right"/>
           </div>
         </div>
       </div>

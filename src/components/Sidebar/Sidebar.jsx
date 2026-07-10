@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import './Sidebar.css';
-import { useApp } from './context/AppContext';
-import ProductsData from './ProductsData.json';
+import { useApp } from '../../context/AppContext';
+import ProductsData from '../../ProductsData.json';
+import { banner } from '../../assets/images';
+import { search } from '../../assets/icons';
+
 
 export default function Sidebar() {
     const { searchQuery, setSearchQuery, setAppliedFilters } = useApp();
@@ -43,7 +45,7 @@ export default function Sidebar() {
                 <div className="search">
                     <label>
                         <input type="text" placeholder="Search" className="input search-row" id="search-row" value = {searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
-                        <img src="./icons/search.svg" alt="Search Icon" className="search-icon"/>
+                        <img src={search} alt="Search Icon" className="search-icon"/>
                     </label>
                 </div>
                 <div className="sidebar-item">
@@ -84,7 +86,6 @@ export default function Sidebar() {
                                 <label htmlFor={`color-${color}`} className="color-name" style={{ textTransform: 'capitalize'}}>{color}</label>
                             </div>
                             ))}
-                        
                         </div>
                     </div>
                 </div>
@@ -135,7 +136,7 @@ export default function Sidebar() {
                 </div>
                 <div>
                     <a href="#">
-                        <img src="./icons/season-sale-banner.svg" alt="Season Sale Banner"/>
+                        <img src={banner} alt="Season Sale Banner"/>
                     </a>
                 </div>
             </div>

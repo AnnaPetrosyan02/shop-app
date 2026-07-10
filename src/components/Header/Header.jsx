@@ -1,8 +1,8 @@
-import { useApp } from '../../context/AppContext'
+import { useCart } from '../../context/CartContext'
 import { logo, arrow, arrowPink, search, profile, favoritesIcon, cart} from '../../assets/icons';
 
 export default function Header({ onCartClick, onShopClick}) {
-  const { favorites, getCartCount } = useApp()
+  const { favorites, getCartCount } = useCart()
 
   return (
     <header className="header">

@@ -1,25 +1,15 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { useDebounce } from '../useDebounce';
 import { LS_keys } from '../constants';
 
-const AppContext = createContext();
+const CartContext = createContext();
 
-export function useApp() {
-  return useContext(AppContext);
+export function useCart() {
+  return useContext(CartContext);
 }
 
-export function AppProvider({ children }) {
+export function CartProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
   const [cart, setCart] = useState([]);
-
-  const [searchQuery, setSearchQuery] = useState('');
-  const debouncedSearchQuery = useDebounce(searchQuery, 500);
-
-  const [appliedFilters, setAppliedFilters] = useState({
-    category:'All',
-    priceRange: [0, Infinity],
-    colors: []
-  });
 
   useEffect(() => {
     const savedFavorites = localStorage.getItem(LS_keys.FAVORITES);
@@ -91,26 +81,21 @@ export function AppProvider({ children }) {
     return cart.reduce((total, item) => total + item.quantity, 0);
   };
 
-  const value = {
-    favorites,
-    cart,
-    toggleFavorite,
-    isFavorite,
-    addToCart,
-    removeFromCart,
-    updateCartQuantity,
-    getCartTotal,
-    getCartCount,
-    searchQuery,
-    setSearchQuery,
-    debouncedSearchQuery,
-    appliedFilters,
-    setAppliedFilters
-  };
-
   return (
-    <AppContext.Provider value={value}>
-      {children}
-    </AppContext.Provider>
+    <CartContext.Provider
+        value = {{
+            favorites,
+            cart,
+            toggleFavorite,
+            isFavorite,
+            addToCart,
+            removeFromCart,
+            updateCartQuantity,
+            getCartTotal,
+            getCartCount
+        }}
+    >
+        {children}
+    </CartContext.Provider>
   );
 }

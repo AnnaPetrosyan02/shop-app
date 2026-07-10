@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
 import ProductsData from '../../ProductsData.json'
-import { useApp } from '../../context/AppContext'
+import { useCart } from '../../context/CartContext'
+import { useShop } from '../../context/ShopContext'
 import { favoritesIcon, favoritesFilled, rightPaginArrow, leftPaginArrow } from '../../assets/icons';
 
 
 export default function Products() {
   const [products, setProducts] = useState([])
-  const { isFavorite, toggleFavorite, addToCart, cart, updateCartQuantity, debouncedSearchQuery, appliedFilters } = useApp()
+  const { isFavorite, toggleFavorite, addToCart, cart, updateCartQuantity } = useCart()
+  const { debouncedSearchQuery, appliedFilters } = useShop();
 
   useEffect(() => {
     setProducts(ProductsData)

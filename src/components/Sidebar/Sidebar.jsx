@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { useApp } from '../../context/AppContext';
+import { useShop } from '../../context/ShopContext'
 import ProductsData from '../../ProductsData.json';
 import { banner } from '../../assets/images';
 import { search } from '../../assets/icons';
 
 
 export default function Sidebar() {
-    const { searchQuery, setSearchQuery, setAppliedFilters } = useApp();
+    const { searchQuery, setSearchQuery, setAppliedFilters } = useShop();
     const allCategories = ['All', ...new Set(ProductsData.flatMap(p => p.categories).filter(Boolean))];
 
     const allColors = [...new Set(ProductsData.flatMap(p => {

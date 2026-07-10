@@ -1,7 +1,7 @@
-import { useApp } from '../../context/AppContext'
+import { useCart } from '../../context/CartContext'
 
 export default function Order() {
-  const { cart, updateCartQuantity, removeFromCart, getCartTotal } = useApp()
+  const { cart, updateCartQuantity, removeFromCart, getCartTotal } = useCart()
 
   const handleQuantityChange = (productId, change) => {
     const product = cart.find(item => item.id === productId)

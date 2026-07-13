@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 body {
@@ -96,7 +96,7 @@ body {
 }
 
 .container .custom-list .item::before {
-  content: '';
+  content: "";
   display: block;
   background-image: url("../icons/square.svg");
   width: 5px;
@@ -108,10 +108,9 @@ body {
 }
 
 .container .custom-list .item.active::before {
-  content: '';
+  content: "";
   display: block;
   background-image: url("../icons/small-row.svg");
   width: 25px;
   height: 3px;
 }
-

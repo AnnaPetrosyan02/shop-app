@@ -1,17 +1,17 @@
-import Sidebar from '../Sidebar/Sidebar'
-import Products from '../Products/Products'
-import Subscribe from '../Subscribe/Subscribe'
+import Sidebar from "../Sidebar/Sidebar";
+import Products from "../Products/Products";
+import Subscribe from "../Subscribe/Subscribe";
 
-export default function Showcase () {
+export default function Showcase() {
   return (
     <>
-      <div className='container'>
+      <div className="container">
         <div className="shop">
-            <Sidebar/>
-            <Products/>
+          <Sidebar />
+          <Products />
         </div>
       </div>
-      <Subscribe/>
+      <Subscribe />
     </>
   );
 }

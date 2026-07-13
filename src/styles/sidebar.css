@@ -64,7 +64,14 @@
   opacity: 0;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .colors .color .color-checkbox+.color-name {
+.shop
+  .sidebar
+  .sidebar-item
+  .sidebar-content
+  .colors
+  .color
+  .color-checkbox
+  + .color-name {
   display: inline-flex;
   align-items: center;
   user-select: none;
@@ -73,8 +80,15 @@
   line-height: 24px;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .colors .color .color-checkbox+.color-name::before {
-  content: '';
+.shop
+  .sidebar
+  .sidebar-item
+  .sidebar-content
+  .colors
+  .color
+  .color-checkbox
+  + .color-name::before {
+  content: "";
   display: inline-block;
   width: 15px;
   height: 15px;
@@ -87,11 +101,25 @@
   box-sizing: border-box;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .colors .color .color-checkbox:checked+.color-name {
+.shop
+  .sidebar
+  .sidebar-item
+  .sidebar-content
+  .colors
+  .color
+  .color-checkbox:checked
+  + .color-name {
   color: rgba(255, 142, 142, 1);
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .colors .color .color-checkbox:checked+.color-name::before {
+.shop
+  .sidebar
+  .sidebar-item
+  .sidebar-content
+  .colors
+  .color
+  .color-checkbox:checked
+  + .color-name::before {
   background-image: url("../assets/icons/check-pink.svg");
 }
 
@@ -113,36 +141,78 @@
   gap: 15px;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .reviewed-products .product .image {
+.shop
+  .sidebar
+  .sidebar-item
+  .sidebar-content
+  .reviewed-products
+  .product
+  .image {
   width: 75px;
   height: 85px;
   background: rgba(241, 242, 243, 1);
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .reviewed-products .product .info {
+.shop
+  .sidebar
+  .sidebar-item
+  .sidebar-content
+  .reviewed-products
+  .product
+  .info {
   max-width: 150px;
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .reviewed-products .product .info .name {
+.shop
+  .sidebar
+  .sidebar-item
+  .sidebar-content
+  .reviewed-products
+  .product
+  .info
+  .name {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
   color: rgba(68, 68, 68, 1);
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .reviewed-products .product .info .price {
+.shop
+  .sidebar
+  .sidebar-item
+  .sidebar-content
+  .reviewed-products
+  .product
+  .info
+  .price {
   gap: 10px;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .reviewed-products .product .info .price .current-price {
+.shop
+  .sidebar
+  .sidebar-item
+  .sidebar-content
+  .reviewed-products
+  .product
+  .info
+  .price
+  .current-price {
   font-size: 14px;
   line-height: 14px;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .reviewed-products .product .info .price .old-price {
+.shop
+  .sidebar
+  .sidebar-item
+  .sidebar-content
+  .reviewed-products
+  .product
+  .info
+  .price
+  .old-price {
   font-size: 12px;
   line-height: 12px;
 }

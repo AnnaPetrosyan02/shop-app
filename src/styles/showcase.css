@@ -96,7 +96,7 @@ body {
 }
 
 .container .custom-list .item::before {
-  content: '';
+  content: "";
   display: block;
   background-image: url("../assets/icons/square.svg");
   width: 5px;
@@ -108,10 +108,9 @@ body {
 }
 
 .container .custom-list .item.active::before {
-  content: '';
+  content: "";
   display: block;
   background-image: url("../assets/icons/small-row.svg");
   width: 25px;
   height: 3px;
 }
-

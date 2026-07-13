@@ -44,7 +44,6 @@
   color: rgba(0, 0, 0, 1);
 }
 
-
 .header-presentation .header-content .content-text .pages .page {
   cursor: pointer; /* Добавьте эту строку */
   transition: color 0.3s ease; /* Добавьте плавный переход */
@@ -52,7 +51,7 @@
 
 .header-presentation .header-content .content-text .pages .page:hover,
 .header-presentation .header-content .content-text .pages .page.active {
-  color: #FF8E8E;
+  color: #ff8e8e;
 }
 .header-presentation .header-content .pages .line {
   width: 1px;
@@ -73,4 +72,3 @@
   height: 400px;
   background: rgba(241, 242, 243, 1);
 }
-

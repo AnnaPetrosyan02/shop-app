@@ -1,32 +1,47 @@
-import { useState, useEffect } from 'react'
-import ProductsData from '../../ProductsData.json'
-import { useCart } from '../../context/CartContext'
-import { useShop } from '../../context/ShopContext'
-import { favoritesIcon, favoritesFilled, rightPaginArrow, leftPaginArrow } from '../../assets/icons';
-
+import { useState, useEffect } from "react";
+import productsData from "../../productsData.json";
+import { useCart } from "../../context/CartContext";
+import { useShop } from "../../context/ShopContext";
+import {
+  favoritesIcon,
+  favoritesFilled,
+  rightPaginArrow,
+  leftPaginArrow,
+} from "../../assets/icons";
 
 export default function Products() {
-  const [products, setProducts] = useState([])
-  const { isFavorite, toggleFavorite, addToCart, cart, updateCartQuantity } = useCart()
+  const [products, setProducts] = useState([]);
+  const { isFavorite, toggleFavorite, addToCart, cart, updateCartQuantity } =
+    useCart();
   const { debouncedSearchQuery, appliedFilters } = useShop();
 
   useEffect(() => {
-    setProducts(ProductsData)
-  }, [])
+    setProducts(productsData);
+  }, []);
 
-  const filteredProducts = products.filter(product => {
-    const matchesSearch = product.name.toLowerCase().includes(debouncedSearchQuery.toLowerCase());
+  const filteredProducts = products.filter((product) => {
+    const matchesSearch = product.name
+      .toLowerCase()
+      .includes(debouncedSearchQuery.toLowerCase());
 
     // proverka nalichiya
     const productCategories = product.categories || [];
-    const matchesCategory = appliedFilters.category === 'All' || productCategories.includes(appliedFilters.category);
+    const matchesCategory =
+      appliedFilters.category === "All" ||
+      productCategories.includes(appliedFilters.category);
 
-    const matchesPrice = product.price >= appliedFilters.priceRange[0] && product.price <= appliedFilters.priceRange[1];
+    const matchesPrice =
+      product.price >= appliedFilters.priceRange[0] &&
+      product.price <= appliedFilters.priceRange[1];
 
     let matchesColor = true;
-    if (appliedFilters.colors.length > 0){
-      const productColors = (product.categories ? [product.color] : []).map(c => c?.toLowerCase());
-      const selectedColorsLower = appliedFilters.colors.map(c => c?.toLowerCase());
+    if (appliedFilters.colors.length > 0) {
+      const productColors = (product.categories ? [product.color] : []).map(
+        (c) => c?.toLowerCase(),
+      );
+      const selectedColorsLower = appliedFilters.colors.map((c) =>
+        c?.toLowerCase(),
+      );
 
       matchesColor = selectedColorsLower.includes(product.color?.toLowerCase());
     }
@@ -35,11 +50,15 @@ export default function Products() {
   });
 
   return (
-    <div className='shop'>
+    <div className="shop">
       <div className="products-wrapper">
         <div className="sort-and-count">
           <div className="products-count">
-            There are <span className="bold" id="products-count">{filteredProducts.length}</span> products in this category
+            There are{" "}
+            <span className="bold" id="products-count">
+              {filteredProducts.length}
+            </span>{" "}
+            products in this category
           </div>
           <div className="sort">
             <select className="input">
@@ -51,8 +70,8 @@ export default function Products() {
         </div>
 
         <div className="products js-products">
-          {filteredProducts.map(product => {
-            const cartItem = cart.find(item => item.id === product.id);
+          {filteredProducts.map((product) => {
+            const cartItem = cart.find((item) => item.id === product.id);
             return (
               <div className="product" key={product.id}>
                 <div className="photo">
@@ -61,32 +80,53 @@ export default function Products() {
                       {product.isSale && <div className="label sale">Sale</div>}
                       {product.isNew && <div className="label new">New</div>}
                     </div>
-                    <div 
-                      className="favorites" 
+                    <div
+                      className="favorites"
                       onClick={() => toggleFavorite(product.id)}
-                      style={{ cursor: 'pointer' }}
+                      style={{ cursor: "pointer" }}
                     >
                       <img
-                        src={isFavorite(product.id) ? favoritesFilled : favoritesIcon }
+                        src={
+                          isFavorite(product.id)
+                            ? favoritesFilled
+                            : favoritesIcon
+                        }
                         alt="heart"
                       />
                     </div>
                   </div>
 
-                  <img className="product-image" src={product.image} alt={product.name} />
+                  <img
+                    className="product-image"
+                    src={product.image}
+                    alt={product.name}
+                  />
                   {!cartItem ? (
-                    <button className="buy-button" onClick={() => addToCart(product)}>
-                      Купить 
+                    <button
+                      className="buy-button"
+                      onClick={() => addToCart(product)}
+                    >
+                      Купить
                     </button>
                   ) : (
                     <div className="quantity-controls">
-                      <button className="quantity-btn" onClick={() => updateCartQuantity(product.id, cartItem.quantity - 1)}>
+                      <button
+                        className="quantity-btn"
+                        onClick={() =>
+                          updateCartQuantity(product.id, cartItem.quantity - 1)
+                        }
+                      >
                         -
                       </button>
                       <span className="quantity-value">
                         {cartItem.quantity}
                       </span>
-                      <button className="quantity-btn" onClick={() => updateCartQuantity(product.id, cartItem.quantity + 1)}>
+                      <button
+                        className="quantity-btn"
+                        onClick={() =>
+                          updateCartQuantity(product.id, cartItem.quantity + 1)
+                        }
+                      >
                         +
                       </button>
                     </div>
@@ -97,7 +137,9 @@ export default function Products() {
                   <div className="name">{product.name}</div>
                   <div className="price">
                     <div className="current-price">${product.price}</div>
-                    {product.oldPrice && <div className="old-price">${product.oldPrice}</div>}
+                    {product.oldPrice && (
+                      <div className="old-price">${product.oldPrice}</div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -107,7 +149,7 @@ export default function Products() {
 
         <div className="pagination">
           <div className="button left">
-            <img src={ leftPaginArrow } alt="arrow-left"/>
+            <img src={leftPaginArrow} alt="arrow-left" />
           </div>
           <div className="pages">
             <div className="page active">1</div>
@@ -115,10 +157,10 @@ export default function Products() {
             <div className="page">3</div>
           </div>
           <div className="button right">
-            <img src={ rightPaginArrow } alt="arrow-right"/>
+            <img src={rightPaginArrow} alt="arrow-right" />
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

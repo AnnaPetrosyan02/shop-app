@@ -1,61 +1,65 @@
-import { useCart } from '../../context/CartContext'
+import { useCart } from "../../context/CartContext";
 
 export default function Order() {
-  const { cart, updateCartQuantity, removeFromCart, getCartTotal } = useCart()
+  const { cart, updateCartQuantity, removeFromCart, getCartTotal } = useCart();
 
   const handleQuantityChange = (productId, change) => {
-    const product = cart.find(item => item.id === productId)
+    const product = cart.find((item) => item.id === productId);
     if (product) {
-      updateCartQuantity(productId, product.quantity + change)
+      updateCartQuantity(productId, product.quantity + change);
     }
-  }
+  };
 
-  const total = getCartTotal()
-  const delivery = total > 0 ? 16 : 0
-  const finalTotal = total + delivery
+  const total = getCartTotal();
+  const delivery = total > 0 ? 16 : 0;
+  const finalTotal = total + delivery;
 
   if (cart.length === 0) {
     return (
       <div className="cart">
         <div className="order-wrapper">
-          <div className="empty-cart">
-            Корзина пуста
-          </div>
+          <div className="empty-cart">Корзина пуста</div>
         </div>
       </div>
-    )
+    );
   }
 
   return (
     <div className="cart">
       <div className="order-wrapper">
         <div className="product-list">
-          {cart.map(product => (
+          {cart.map((product) => (
             <div className="product" key={product.id}>
               <div className="photo">
-                <img src={product.image} alt={product.name} style={{ width: '80px', height: '80px', objectFit: 'cover' }}/>
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  style={{ width: "80px", height: "80px", objectFit: "cover" }}
+                />
               </div>
               <div className="product-info">
                 <div className="title">{product.name}</div>
                 <div className="price-wrapper">
                   <div className="price-and-quantity">
                     <div className="price">
-                      {product.oldPrice && <div className="old-price">${product.oldPrice}</div>}
+                      {product.oldPrice && (
+                        <div className="old-price">${product.oldPrice}</div>
+                      )}
                       <div className="current-price">${product.price}</div>
                     </div>
                     <div className="quantity">
-                      <div 
-                        className="count-button" 
+                      <div
+                        className="count-button"
                         onClick={() => handleQuantityChange(product.id, -1)}
-                        style={{ cursor: 'pointer' }}
+                        style={{ cursor: "pointer" }}
                       >
                         -
                       </div>
                       <div className="count">{product.quantity}</div>
-                      <div 
-                        className="count-button" 
+                      <div
+                        className="count-button"
                         onClick={() => handleQuantityChange(product.id, 1)}
-                        style={{ cursor: 'pointer' }}
+                        style={{ cursor: "pointer" }}
                       >
                         +
                       </div>
@@ -65,10 +69,10 @@ export default function Order() {
                     ${(product.price * product.quantity).toFixed(2)}
                   </div>
                 </div>
-                <div 
+                <div
                   className="close"
                   onClick={() => removeFromCart(product.id)}
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                 >
                   ×
                 </div>

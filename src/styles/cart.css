@@ -203,3 +203,132 @@
   font-weight: 600;
   line-height: 16px;
 }
+
+.cart .promo-code-wrapper {
+  max-width: 375px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.cart .promo-code-wrapper .info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart .promo-code-wrapper .info .title {
+  font-family: Josefin Sans;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 38px;
+  color: rgba(0, 0, 0, 1);
+}
+
+.cart .promo-code-wrapper .info .description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27px;
+  color: rgba(68, 68, 68, 1);
+}
+
+.cart .promo-code-wrapper .promo-code {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.cart .promo-code-wrapper .promo-code .button-wrapper {
+  max-width: 54px;
+}
+
+.cart .promo-code-wrapper .promo-code .button-wrapper .button {
+  padding: 17px 15px;
+}
+
+.container .find-us .find-us-text {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 27px;
+  color: rgba(0, 0, 0, 1);
+}
+
+.container .find-us .find-us-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.container .find-us .find-us-links .find-us-link a {
+  text-decoration: none;
+  color: rgba(68, 68, 68, 1);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+}
+
+.container .find-us .find-us-links .line {
+  border-bottom: 1px solid rgba(68, 68, 68, 1);
+  height: 1px;
+  width: 10px;
+}
+
+@media (max-width: 1000px) {
+  .header .left-side .menu {
+    display: none;
+  }
+
+  .header .left-side .logo-container .burger-menu {
+    display: block;
+    position: relative;
+  }
+
+  .header .left-side .logo-container .burger-menu .main-menu {
+    background: white;
+    z-index: 2;
+    width: 100%;
+    display: none;
+  }
+
+  .header
+    .left-side
+    .logo-container
+    .burger-menu
+    #burger-checkbox:checked
+    + nav[role="navigation"]
+    .main-menu {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-presentation .header-image {
+    display: none;
+  }
+
+  .footer .footer-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer .designs {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .header .right-side .header-icon {
+    display: none;
+  }
+
+  .subscribe-wrapper .container .subscribe-content .subscribe-input {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

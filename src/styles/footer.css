@@ -172,19 +172,14 @@
   gap: 8px;
 }
 
-
-  
-  @media (max-width: 600px)  {
-  
-  
-    .footer .footer-info {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-  
-    .footer .designs {
-      display: none;
-    }
-  
+@media (max-width: 600px) {
+  .footer .footer-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
   }
+
+  .footer .designs {
+    display: none;
+  }
+}

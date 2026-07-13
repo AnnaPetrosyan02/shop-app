@@ -10,27 +10,27 @@ import Cart from "./Cart";
 import { PAGES } from "./constants/index.js";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState(PAGES.SHOP);
+	const [currentPage, setCurrentPage] = useState(PAGES.SHOP);
 
-  return (
-    <CartProvider>
-      <ShopProvider>
-        <Header
-          onCartClick={() => setCurrentPage(PAGES.CART)}
-          onShopClick={() => setCurrentPage(PAGES.SHOP)}
-        />
+	return (
+		<CartProvider>
+			<ShopProvider>
+				<Header
+					onCartClick={() => setCurrentPage(PAGES.CART)}
+					onShopClick={() => setCurrentPage(PAGES.SHOP)}
+				/>
 
-        <ContentBlock
-          currentPage={currentPage}
-          onPageClick={(page) => setCurrentPage(page)}
-        />
+				<ContentBlock
+					currentPage={currentPage}
+					onPageClick={(page) => setCurrentPage(page)}
+				/>
 
-        {currentPage === PAGES.SHOP ? <Showcase /> : <Cart />}
+				{currentPage === PAGES.SHOP ? <Showcase /> : <Cart />}
 
-        <Footer />
-      </ShopProvider>
-    </CartProvider>
-  );
+				<Footer />
+			</ShopProvider>
+		</CartProvider>
+	);
 }
 
 export default App;

@@ -1,4 +1,6 @@
 {
-  "singleQuote": false,
-  "jsxSingleQuote": false
+	"singleQuote": false,
+	"jsxSingleQuote": false,
+	"useTabs": true,
+	"tabWidth": 4
 }

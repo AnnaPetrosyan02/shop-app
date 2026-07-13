@@ -4,30 +4,30 @@ import { useDebounce } from "../useDebounce";
 const ShopContext = createContext();
 
 export function useShop() {
-  return useContext(ShopContext);
+	return useContext(ShopContext);
 }
 
 export function ShopProvider({ children }) {
-  const [searchQuery, setSearchQuery] = useState("");
-  const debouncedSearchQuery = useDebounce(searchQuery, 500);
+	const [searchQuery, setSearchQuery] = useState("");
+	const debouncedSearchQuery = useDebounce(searchQuery, 500);
 
-  const [appliedFilters, setAppliedFilters] = useState({
-    category: "All",
-    priceRange: [0, Infinity],
-    colors: [],
-  });
+	const [appliedFilters, setAppliedFilters] = useState({
+		category: "All",
+		priceRange: [0, Infinity],
+		colors: [],
+	});
 
-  return (
-    <ShopContext.Provider
-      value={{
-        searchQuery,
-        setSearchQuery,
-        debouncedSearchQuery,
-        appliedFilters,
-        setAppliedFilters,
-      }}
-    >
-      {children}
-    </ShopContext.Provider>
-  );
+	return (
+		<ShopContext.Provider
+			value={{
+				searchQuery,
+				setSearchQuery,
+				debouncedSearchQuery,
+				appliedFilters,
+				setAppliedFilters,
+			}}
+		>
+			{children}
+		</ShopContext.Provider>
+	);
 }

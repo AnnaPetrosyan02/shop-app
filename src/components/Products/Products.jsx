@@ -1,19 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import productsData from "../../productsData.json";
 import { useCart } from "../../context/CartContext";
 import { useShop } from "../../context/ShopContext";
+import Pagination from "../Pagination/Pagination";
 import {
 	favoritesIcon,
 	favoritesFilled,
-	rightPaginArrow,
-	leftPaginArrow,
 } from "../../assets/icons";
 
 export default function Products() {
 	const [products, setProducts] = useState([]);
 	const { isFavorite, toggleFavorite, addToCart, cart, updateCartQuantity } =
 		useCart();
-	const { debouncedSearchQuery, appliedFilters } = useShop();
+	const { 
+		debouncedSearchQuery, 
+		appliedFilters,
+		sortBy,
+		setSortBy,
+		productPage,
+		setProductPage
+	} = useShop();
+
+	const itemsPerPage = 6;
 
 	useEffect(() => {
 		setProducts(productsData);
@@ -48,6 +56,35 @@ export default function Products() {
 		return matchesSearch && matchesCategory && matchesPrice && matchesColor;
 	});
 
+	const sortedProducts = useMemo(() => {
+		const items = [...filteredProducts];
+		
+		if (sortBy === "PRICE_ASC") {
+			return items.sort((a, b) => a.price - b.price);
+		}
+		if (sortBy === "PRICE_DESC") {
+			return items.sort((a, b) => b.price - a.price);
+		}
+		if (sortBy === "NAME_ASC") {
+			return items.sort((a, b) => a.name.localeCompare(b.name));
+		}
+		if (sortBy === "NAME_DESC") {
+			return items.sort((a, b) => b.name.localeCompare(a.name));
+		}
+		
+		return items;
+	}, [filteredProducts, sortBy]);
+
+	const totalItems = sortedProducts.length;
+	const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+	
+	const indexOfLastItem = productPage * itemsPerPage;
+	const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+	
+	const currentProducts = sortedProducts.slice(indexOfFirstItem, indexOfLastItem);
+	console.log("ТЕКУЩИЙ СТЕЙТ СОРТИРОВКИ:", sortBy);
+	console.log("ПЕРВЫЙ ТОВАР НА ЭКРАНЕ:", currentProducts[0]?.name, currentProducts[0]?.price);
+
 	return (
 		<div className="shop">
 			<div className="products-wrapper">
@@ -60,16 +97,21 @@ export default function Products() {
 						products in this category
 					</div>
 					<div className="sort">
-						<select className="input">
+						<select className="input"
+							value={sortBy}
+							onChange={(e) => setSortBy(e.target.value)}
+						>
 							<option value="RELEVANCE">Relevance</option>
-							<option value="ASC">ASC</option>
-							<option value="DESC">DESC</option>
+							<option value="NAME_ASC">from A to Z</option>
+							<option value="NAME_DESC">from Z to A</option>
+							<option value="PRICE_ASC">from low to high</option>
+							<option value="PRICE_DESC">from high to low</option>
 						</select>
 					</div>
 				</div>
 
 				<div className="products js-products">
-					{filteredProducts.map((product) => {
+					{currentProducts.map((product) => {
 						const cartItem = cart.find(
 							(item) => item.id === product.id,
 						);
@@ -168,19 +210,11 @@ export default function Products() {
 					})}
 				</div>
 
-				<div className="pagination">
-					<div className="button left">
-						<img src={leftPaginArrow} alt="arrow-left" />
-					</div>
-					<div className="pages">
-						<div className="page active">1</div>
-						<div className="page">2</div>
-						<div className="page">3</div>
-					</div>
-					<div className="button right">
-						<img src={rightPaginArrow} alt="arrow-right" />
-					</div>
-				</div>
+				<Pagination
+					currentPage={productPage}
+					totalPages={totalPages}
+					onPageChange={setProductPage}
+				/>
 			</div>
 		</div>
 	);

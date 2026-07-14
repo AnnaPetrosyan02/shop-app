@@ -17,6 +17,13 @@ export function ShopProvider({ children }) {
 		colors: [],
 	});
 
+	const [sortBy, setSortBy] = useState("RELEVANCE");
+	const [productPage, setProductPage] = useState(1);
+
+	useEffect(() => {
+		setProductPage(1);
+	}, [debouncedSearchQuery, appliedFilters]);
+
 	return (
 		<ShopContext.Provider
 			value={{
@@ -25,6 +32,10 @@ export function ShopProvider({ children }) {
 				debouncedSearchQuery,
 				appliedFilters,
 				setAppliedFilters,
+				sortBy,
+				setSortBy,
+				productPage,
+				setProductPage,
 			}}
 		>
 			{children}

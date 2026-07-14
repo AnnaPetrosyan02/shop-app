@@ -142,6 +142,7 @@ export default function Sidebar() {
 						className="button button-apply-filter"
 						id="apply-filter"
 						onClick={handleApplyFilter}
+						disabled={selectedCategory === 'All' && !minPrice && !maxPrice && selectedColors.length === 0}
 					>
 						Apply Filter
 					</button>

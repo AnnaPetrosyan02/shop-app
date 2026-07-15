@@ -33,10 +33,30 @@
 	gap: 30px;
 }
 
-.cart .promo-code-wrapper .promo-code .button-wrapper {
-	max-width: 54px;
+.find-us .find-us-text {
+	margin: 0 0 20px 0;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 27px;
+	color: rgba(0, 0, 0, 1);
 }
 
-.cart .promo-code-wrapper .promo-code .button-wrapper .button {
-	padding: 17px 15px;
+.find-us .find-us-links {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+}
+
+.find-us .find-us-links .find-us-link a {
+	text-decoration: none;
+	color: rgba(68, 68, 68, 1);
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 14px;
+}
+
+.find-us .find-us-links .line {
+	border-bottom: 1px solid rgba(68, 68, 68, 1);
+	height: 1px;
+	width: 10px;
 }

@@ -1,0 +1,13 @@
+.container {
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.shop {
+    display: flex;             
+    gap: 50px;                 
+    align-items: flex-start;   
+    margin-top: 40px;
+    margin-bottom: 200px;
+}

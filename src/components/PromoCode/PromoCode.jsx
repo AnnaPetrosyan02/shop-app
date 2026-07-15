@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { buttonArrow } from "../../assets/icons";
+import styles from "../../styles/promoCode.module.css";
 
 export default function PromoCode({ isPromoApplied, setIsPromoApplied }) {
 	const [promoInput, setPromoInput] = useState("");
@@ -15,16 +16,16 @@ export default function PromoCode({ isPromoApplied, setIsPromoApplied }) {
 	};
 
 	return (
-		<div className="cart">
-			<div className="promo-code-wrapper">
-				<div className="info">
-					<div className="title">You Have A Promo Code?</div>
-					<div className="description">
+		<div className={styles.cart}>
+			<div className={styles.promoCodeWrapper}>
+				<div className={styles.info}>
+					<div className={styles.title}>You Have A Promo Code?</div>
+					<div className={styles.description}>
 						To receive up-to-date promotional codes, subscribe to us
 						on social networks.
 					</div>
 				</div>
-				<div className="promo-code">
+				<div className={styles.promoCode}>
 					<input
 						type="text"
 						name="promo-code"
@@ -41,22 +42,22 @@ export default function PromoCode({ isPromoApplied, setIsPromoApplied }) {
 						<div className="vertical-line"></div>
 					</div>
 				</div>
-				<div className="find-us">
-					<div className="find-us-text">Find us here:</div>
-					<div className="find-us-links">
-						<div className="find-us-link">
+				<div className={styles.findUs}>
+					<div className={styles.findUsText}>Find us here:</div>
+					<div className={styles.findUsLinks}>
+						<div className={styles.findUsLink}>
 							<a href="">FB</a>
 						</div>
-						<div className="line"></div>
-						<div className="find-us-link">
+						<div className={styles.line}></div>
+						<div className={styles.findUsLink}>
 							<a href="">TW</a>
 						</div>
-						<div className="line"></div>
-						<div className="find-us-link">
+						<div className={styles.line}></div>
+						<div className={styles.findUsLink}>
 							<a href="">INS</a>
 						</div>
-						<div className="line"></div>
-						<div className="find-us-link">
+						<div className={styles.line}></div>
+						<div className={styles.findUsLink}>
 							<a href="">PT</a>
 						</div>
 					</div>

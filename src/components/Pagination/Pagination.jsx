@@ -1,4 +1,6 @@
 import { leftPaginArrow, rightPaginArrow } from "../../assets/icons";
+import styles from "../../styles/pagination.module.css";
+
 
 export default function Pagination({ currentPage, totalPages, onPageChange }) {
 	const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
@@ -12,7 +14,9 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
 	};
 
 	return (
-		<div className="pagination">
+		<div className={styles.shop}>
+			<div className={styles.productsWrapper}>
+				<div className={styles.pagination}>
 			<div 
 				className={`button left ${currentPage === 1 ? "disabled" : ""}`} 
 				onClick={handlePrev}
@@ -21,11 +25,11 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
 				<img src={leftPaginArrow} alt="arrow-left" />
 			</div>
 
-			<div className="pages">
+			<div className={styles.pages}>
 				{pageNumbers.map((page) => (
 					<div
 						key={page}
-						className={`page ${currentPage === page ? "active" : ""}`}
+						className={`${styles.page} ${currentPage === page ? styles.active : ""}`}
 						onClick={() => onPageChange(page)}
 						style={{ cursor: "pointer" }}
 					>
@@ -41,6 +45,10 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
 			>
 				<img src={rightPaginArrow} alt="arrow-right" />
 			</div>
+				</div>
+			</div>
+			
 		</div>
+		
 	);
 }

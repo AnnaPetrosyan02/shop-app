@@ -153,7 +153,7 @@ export default function Order({ isPromoApplied }) {
                         </div>
                         <div className={`${styles.priceRow} ${styles.total}`}>
                             <div className={styles.name}>Total</div>
-                            <div className={styles.price}>
+                            <div className={styles.price} data-testid="total-amount">
                                 ${finalTotal.toFixed(2)}
                             </div>
                         </div>

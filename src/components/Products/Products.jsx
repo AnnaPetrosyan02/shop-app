@@ -83,8 +83,6 @@ export default function Products() {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     
     const currentProducts = sortedProducts.slice(indexOfFirstItem, indexOfLastItem);
-    console.log("ТЕКУЩИЙ СТЕЙТ СОРТИРОВКИ:", sortBy);
-    console.log("ПЕРВЫЙ ТОВАР НА ЭКРАНЕ:", currentProducts[0]?.name, currentProducts[0]?.price);
 
     return (
         <div className={styles.shop}>

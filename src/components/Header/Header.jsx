@@ -102,7 +102,7 @@ export default function Header({ onCartClick, onShopClick }) {
                 </div>
                 <div className={styles.headerIcon} onClick={onCartClick}>
                     <img src={cart} alt="cart" />
-                    <div className={`${styles.counter} js-basket-counter`}>
+                    <div className={`${styles.counter} js-basket-counter`} data-testid="cart-count">
                         {getCartCount()}
                     </div>
                 </div>
